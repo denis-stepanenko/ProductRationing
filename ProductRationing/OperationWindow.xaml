@@ -1,0 +1,120 @@
+﻿<Window x:Class="ProductRationing.OperationWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                     xmlns:infrastructure="clr-namespace:ProductRationing.Infrastructure" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        WindowStartupLocation="CenterScreen"
+                     mc:Ignorable="d"
+                     Title="Операция" Height="800" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <TextBlock>Код</TextBlock>
+                    <TextBox x:Name="codeTextBox" IsReadOnly="True"/>
+
+                    <TextBlock>Цех</TextBlock>
+                    <ComboBox x:Name="departmentComboBox" SelectedIndex="0">
+                        <ComboBoxItem>4</ComboBoxItem>
+                        <ComboBoxItem>5</ComboBoxItem>
+                        <ComboBoxItem>6</ComboBoxItem>
+                        <ComboBoxItem>13</ComboBoxItem>
+                        <ComboBoxItem>17</ComboBoxItem>
+                        <ComboBoxItem>69</ComboBoxItem>
+                        <ComboBoxItem>80</ComboBoxItem>
+                        <ComboBoxItem>82</ComboBoxItem>
+                        <ComboBoxItem>90</ComboBoxItem>
+                    </ComboBox>
+
+                    <TextBlock>Наименование</TextBlock>
+                    <TextBox x:Name="nameTextBox"/>
+
+                    <TextBlock>Трудоемкость</TextBlock>
+                    <xctk:DecimalUpDown x:Name="laborDecimalUpDown" Value="0"/>
+                    <TextBlock>Описание</TextBlock>
+                    <TextBox x:Name="descriptionTextBox"
+                 VerticalScrollBarVisibility="Auto"
+                 Height="300"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 MaxLength="3000"/>
+
+                    <TextBlock>Единица измерения</TextBlock>
+                    <infrastructure:SelectControl ShowClearButton="True"
+                                      x:Name="unitSelectControl"
+                                      Click="UnitSelectControl_Click"
+                                      Clear="UnitSelectControl_Clear"/>
+
+                    <TextBlock>Группа</TextBlock>
+                    <infrastructure:SelectControl ShowClearButton="True"
+                                      x:Name="groupSelectControl"
+                                      Click="GroupSelectControl_Click"
+                                      Clear="GroupSelectControl_Clear"/>
+
+                    <TextBlock>Укрупненная операция</TextBlock>
+                    <infrastructure:SelectControl ShowClearButton="True"
+                                      x:Name="bigOperationSelectControl"
+                                      Click="bigOperationSelectControl_Click"
+                                      Clear="bigOperationSelectControl_Clear"/>
+
+                    <TextBlock>Материал</TextBlock>
+                    <!--<infrastructure:SelectControl ShowClearButton="True"
+                                      x:Name="materialSelectControl"
+                                      Click="materialSelectControl_Click"
+                                      Clear="materialSelectControl_Clear"/>-->
+                    <TextBox x:Name="materialNameTextBox"/>
+
+                    <TextBlock>Разряд:</TextBlock>
+                    <mahapps:NumericUpDown x:Name="rankNumericUpDown" Value="0"/>
+
+                    <TextBlock>Профессия:</TextBlock>
+                    <ComboBox x:Name="professionsComboBox" IsTextSearchEnabled="True" IsEditable="True"/>
+
+                    <TextBlock>Вид ТП:</TextBlock>
+                    <ComboBox x:Name="typesComboBox" IsTextSearchEnabled="True" IsEditable="True"/>
+
+                    <TextBlock>Код операции по ТО 185151:</TextBlock>
+                    <TextBox x:Name="codifierCodeTextBox"/>
+
+                    <TextBlock>Наименование операции по ТО 185151:</TextBlock>
+                    <TextBox x:Name="codifierNameTextBox"/>
+
+                    <TextBlock>Код группы по ТО 185151:</TextBlock>
+                    <TextBox x:Name="codifierGroupCodeTextBox"/>
+
+                    <TextBlock>Наименование группы по ТО 185151:</TextBlock>
+                    <TextBox x:Name="codifierGroupNameTextBox"/>
+
+                    <TextBlock>Описание 2:</TextBlock>
+                    <TextBox x:Name="description2TextBox"
+                 VerticalScrollBarVisibility="Auto"
+                 Height="200"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 MaxLength="3000"/>
+
+                    <TextBlock>Операция по ТехноПро:</TextBlock>
+                    <TextBox x:Name="techProOperationNameTextBox"/>
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <Button Grid.Row="1"
+                x:Name="acceptButton"
+                IsDefault="True"
+                Click="AcceptButton_Click">ОК</Button>
+    </Grid>
+
+</Window>

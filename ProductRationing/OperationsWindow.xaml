@@ -1,0 +1,88 @@
+﻿<Window x:Class="ProductRationing.OperationsWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                     
+                     WindowStartupLocation="CenterScreen"             
+                     mc:Ignorable="d"
+                     Title="Операции" Height="800" Width="1000">
+
+    <xctk:BusyIndicator x:Name="busyIndicator" BusyContent="Подождите">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <WrapPanel>
+                <Button x:Name="addButton" Click="AddButton_Click">Добавить</Button>
+                <Button x:Name="duplicateButton" Click="duplicateButton_Click">Дублировать</Button>
+                <Button x:Name="editButton" Click="EditButton_Click">Изменить</Button>
+                <Button x:Name="removeButton" Click="RemoveButton_Click">Удалить</Button>
+                <Button x:Name="refreshButton" Click="RefreshButton_Click">Обновить</Button>
+                <Button x:Name="getProductsInWhichOperationIsUsedButton" Click="getProductsInWhichOperationIsUsedButton_Click">Узнать продукты, в которых используется операция</Button>
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="1">
+                <WrapPanel.Resources>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                        <Setter Property="Width" Value="200"/>
+                        <Setter Property="mahapps:TextBoxHelper.ClearTextButton" Value="True"/>
+                    </Style>
+                </WrapPanel.Resources>
+
+                <TextBox x:Name="departmentFilterTextBox" TextChanged="DepartmentFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Цех"/>
+                <TextBox x:Name="codeFilterTextBox" TextChanged="CodeFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Код"/>
+                <TextBox x:Name="nameFilterTextBox" TextChanged="NameFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Наименование"/>
+                <TextBox x:Name="descriptionFilterTextBox" TextChanged="DescriptionFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Описание"/>
+                <TextBox x:Name="unitFilterTextBox" TextChanged="UnitFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Единица измерения"/>
+                <TextBox x:Name="groupFilterTextBox" TextChanged="GroupFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Группа"/>
+                
+                <TextBox x:Name="rankFilterTextBox" TextChanged="rankFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Разряд"/>
+                <TextBox x:Name="professionCodeFilterTextBox" TextChanged="professionCodeFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Код профессии"/>
+                <TextBox x:Name="professionNameFilterTextBox" TextChanged="professionNameFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Наименование профессии"/>
+                <TextBox x:Name="codeOfOperationTypeFilterTextBox" TextChanged="codeOfOperationTypeFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Код вида ТП"/>
+
+                <TextBox x:Name="codifierCodeFilterTextBox" TextChanged="codifierCodeFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Код операции по ТО 185151"/>
+                <TextBox x:Name="codifierNameFilterTextBox" TextChanged="codifierNameFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Наименование операции по ТО 185151"/>
+                <TextBox x:Name="codifierGroupCodeFilterTextBox" TextChanged="codifierGroupCodeFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Код группы по ТО 185151"/>
+                <TextBox x:Name="codifierGroupNameFilterTextBox" TextChanged="codifierGroupNameFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Наименование группы по ТО 185151"/>
+                <TextBox x:Name="description2FilterTextBox" TextChanged="description2FilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Описание 2"/>
+                <TextBox x:Name="techProOperationNameFilterTextBox" TextChanged="techProOperationNameFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Операция из ТехноПро"/>
+                <TextBox x:Name="materialFilterTextBox" TextChanged="materialFilterTextBox_TextChanged" mahapps:TextBoxHelper.Watermark="Материал"/>
+            </WrapPanel>
+
+            <DataGrid Grid.Row="2" x:Name="itemsDataGrid" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="ItemsDataGrid_MouseDoubleClick">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Цех" Binding="{Binding Department}" Width="50"/>
+                    <DataGridTextColumn Header="Код" Binding="{Binding Code}" Width="50"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="300"/>
+                    <DataGridTextColumn Header="Трудоемкость" Binding="{Binding Labor}" Width="60"/>
+                    <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="200"/>
+                    <DataGridTextColumn Header="Единица измерения" Binding="{Binding Unit.Name}" Width="50"/>
+                    <DataGridTextColumn Header="Группа" Binding="{Binding Group.Name}" Width="160"/>
+                    <DataGridTextColumn Header="Укрупненная операция" Binding="{Binding BigOperation.Name}" Width="120"/>
+
+                    <DataGridTextColumn Header="Разряд" Binding="{Binding Rank}" Width="50"/>
+                    <DataGridTextColumn Header="Код профессии" Binding="{Binding Profession.Code}" Width="60"/>
+                    <DataGridTextColumn Header="Наименование профессии" Binding="{Binding Profession.Name}" Width="200"/>
+                    <DataGridTextColumn Header="Код вида ТП" Binding="{Binding TechProcessType.Code}" Width="60"/>
+
+                    <DataGridTextColumn Header="Код операции по ТО 185151" Binding="{Binding CodifierCode}" Width="60"/>
+                    <DataGridTextColumn Header="Наименование операции по ТО 185151" Binding="{Binding CodifierName}" Width="200"/>
+                    <DataGridTextColumn Header="Код группы по ТО 185151" Binding="{Binding CodifierGroupCode}" Width="60"/>
+                    <DataGridTextColumn Header="Наименование группы по ТО 185151" Binding="{Binding CodifierGroupName}" Width="200"/>
+
+                    <DataGridTextColumn Header="Описание 2" Binding="{Binding Description2}" Width="200"/>
+                    <DataGridTextColumn Header="Операция из ТехноПро" Binding="{Binding TechProOperationName}" Width="200"/>
+                    <DataGridTextColumn Header="Материал" Binding="{Binding MaterialName}" Width="200"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </xctk:BusyIndicator>
+
+</Window>

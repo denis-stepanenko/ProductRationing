@@ -1,0 +1,20 @@
+﻿ProductRationing
+
+
+winexe
+C#
+.cs
+D:\StepanenkoDO\Рабочий стол\productionrationing\ProductRationing\obj\Debug\
+ProductRationing
+none
+false
+DEBUG;TRACE
+D:\StepanenkoDO\Рабочий стол\productionrationing\ProductRationing\App.xaml
+37-1222592025
+
+78-843601105
+35-1806685313
+AddOperationsFromProductWindow.xaml;AddOperationsWindow.xaml;EmptyProductsReportWindow.xaml;GroupsWindow.xaml;GroupWindow.xaml;Infrastructure\SelectControl.xaml;OldOperationsWindow.xaml;OperationsAndBigOperationsWithPZVForProductRelationReportWindow.xaml;BigOperationsByProductReportWindow.xaml;OperationsAndBigOperationsWithPZVWithDescriptionForAssemblyDepartmentsReportWindow.xaml;ProductsAndOperationsReportWindow.xaml;OperationsAndBigOperationsWithPZVWithDescriptionReportWindow.xaml;OperationsWindow.xaml;OldOperationWindow.xaml;OperationWindow.xaml;ProductOperationWindow.xaml;MainWindow.xaml;ReportsWindow.xaml;Reports\Pages\OperationsAndBigOperationsWithPZVPage.xaml;Reports\Pages\ProductsAndBigOperationsWithPZVPage.xaml;Reports\Pages\ProductsAndOperationGroupsWithPZVPage.xaml;Reports\Pages\ProductsAndOperationGroupsPage.xaml;Reports\Pages\ProductsAndOperationsPage.xaml;Reports\Pages\ProductsContainingOperationPage.xaml;Reports\Pages\SumByDepartmentsPage.xaml;Reports\Pages\SumByGroupsPage.xaml;Reports\Pages\SumByProductsPage.xaml;OperationsAndBigOperationsWithPZVReportWindow.xaml;ReportWindow.xaml;SelectMaterialWindow.xaml;SelectBigOperationWindow.xaml;SelectGroupWindow.xaml;SelectOperationWindow.xaml;SelectProductWindow.xaml;SelectUnitWindow.xaml;UnitsWindow.xaml;UnitWindow.xaml;
+
+True
+

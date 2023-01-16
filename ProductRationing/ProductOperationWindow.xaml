@@ -1,0 +1,58 @@
+﻿<Window x:Class="ProductRationing.ProductOperationWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                     xmlns:infrastructure="clr-namespace:ProductRationing.Infrastructure" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        WindowStartupLocation="CenterScreen"
+                     mc:Ignorable="d"
+                     Title="Операция" Height="800" Width="1000">
+    <StackPanel>
+
+        <TextBlock>Код:</TextBlock>
+        <TextBlock x:Name="codeTextBlock"/>
+
+        <TextBlock>Цех:</TextBlock>
+        <TextBlock x:Name="departmentTextBlock"/>
+
+        <TextBlock>Наименование:</TextBlock>
+        <TextBlock x:Name="nameTextBlock"/>
+
+        <TextBlock>Трудоемкость:</TextBlock>
+        <TextBlock x:Name="laborTextBlock"/>
+
+        <TextBlock>Описание:</TextBlock>
+        <TextBlock x:Name="descriptionTextBlock"/>
+
+        <TextBlock>Единица измерения:</TextBlock>
+        <TextBlock x:Name="unitTextBlock"/>
+
+        <TextBlock>Группа:</TextBlock>
+        <TextBlock x:Name="groupTextBlock"/>
+
+        <TextBlock>Укрупненная операция:</TextBlock>
+        <TextBlock x:Name="bigOperationTextBlock"/>
+
+        <TextBlock>Количество:</TextBlock>
+        <mahapps:NumericUpDown x:Name="countNumericUpDown"/>
+
+        <TextBlock>Группа сложности:</TextBlock>
+        <mahapps:NumericUpDown x:Name="difficultyGroupNumericUpDown" Maximum="6" Minimum="1"/>
+        
+        <TextBlock>Машинное время:</TextBlock>
+        <xctk:DecimalUpDown x:Name="machineTimeDecimalUpDown"/>
+
+        <TextBlock>Примечание:</TextBlock>
+        <TextBox x:Name="productOperationDescriptionTextBox"
+                 VerticalScrollBarVisibility="Auto"
+                 Height="300"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 MaxLength="500"/>
+
+        <Button HorizontalAlignment="Right"
+                x:Name="acceptButton"
+                Click="AcceptButton_Click">ОК</Button>
+    </StackPanel>
+</Window>

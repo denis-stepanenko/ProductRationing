@@ -1,0 +1,92 @@
+﻿<Window x:Class="ProductRationing.OldOperationWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                     xmlns:infrastructure="clr-namespace:ProductRationing.Infrastructure" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        WindowStartupLocation="CenterScreen"
+                     mc:Ignorable="d"
+                     Title="Операция" Height="800" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0">Код:</TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="codeTextBox" IsReadOnly="True"/>
+
+        <TextBlock Grid.Row="1">Цех:</TextBlock>
+        <ComboBox Grid.Row="1" Grid.Column="1" x:Name="departmentComboBox" SelectedIndex="0">
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
+            <ComboBoxItem>13</ComboBoxItem>
+            <ComboBoxItem>17</ComboBoxItem>
+            <ComboBoxItem>69</ComboBoxItem>
+            <ComboBoxItem>80</ComboBoxItem>
+            <ComboBoxItem>82</ComboBoxItem>
+            <ComboBoxItem>90</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Grid.Row="2">Наименование:</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="nameTextBox"/>
+
+        <TextBlock Grid.Row="3">Трудоемкость:</TextBlock>
+
+        <xctk:DecimalUpDown Grid.Row="3" 
+                            Grid.Column="1" 
+                            x:Name="laborDecimalUpDown" 
+                            Value="0"/>
+        
+        <TextBlock Grid.Row="4">Описание:</TextBlock>
+        <TextBox Grid.Row="4" 
+                 Grid.Column="1" 
+                 x:Name="descriptionTextBox"
+                 VerticalScrollBarVisibility="Auto"
+                 Height="300"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 MaxLength="3000"/>
+
+        <TextBlock Grid.Row="5">Единица измерения:</TextBlock>
+        <infrastructure:SelectControl Grid.Row="5" 
+                                      IsEnabled="False"
+                                      Grid.Column="1" 
+                                      ShowClearButton="True"
+                                      x:Name="unitSelectControl"
+                                      Click="UnitSelectControl_Click"
+                                      Clear="UnitSelectControl_Clear"/>
+
+        <TextBlock Grid.Row="6">Группа:</TextBlock>
+        <infrastructure:SelectControl Grid.Row="6" 
+                                      IsEnabled="False"
+                                      Grid.Column="1" 
+                                      ShowClearButton="True"
+                                      x:Name="groupSelectControl"
+                                      Click="GroupSelectControl_Click"
+                                      Clear="GroupSelectControl_Clear"/>
+
+        <TextBlock Grid.Row="7">Укрупненная операция:</TextBlock>
+        <infrastructure:SelectControl Grid.Row="7" 
+                                      IsEnabled="False"
+                                      Grid.Column="1" 
+                                      ShowClearButton="True"
+                                      x:Name="bigOperationSelectControl"
+                                      Click="bigOperationSelectControl_Click"
+                                      Clear="bigOperationSelectControl_Clear"/>
+    </Grid>
+</Window>

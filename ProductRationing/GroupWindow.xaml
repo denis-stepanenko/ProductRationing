@@ -1,0 +1,32 @@
+﻿<Window x:Class="ProductRationing.GroupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:ProductRationing"
+        
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Группа" Height="800" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock>Наименование:</TextBlock>
+        <TextBox Grid.Column="1" x:Name="nameTextBox"/>
+
+        <Button Grid.Row="1" 
+                Grid.Column="1" 
+                HorizontalAlignment="Right"
+                x:Name="acceptButton"
+                Click="AcceptButton_Click">ОК</Button>
+    </Grid>
+</Window>
